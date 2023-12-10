@@ -5959,7 +5959,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1153957759}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
-        m_MethodName: EndRound
+        m_MethodName: ScoreRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
