@@ -81,9 +81,6 @@ public class Game : MonoBehaviour
     // гДйнгх осйЕ²? гЦй?гроЕ? гр хгр?≤Д
     public int GetSelectedCategoryFromPlayer(Player player)
     {
-        // г?Длг хг?о ≤о? ДФтй ≤Е гр хгр?≤Д хнФгЕо ?≤ осйЕ гДйнгх ≤До.
-        // ЦкАгП ?≤ UI ДЦг?т оЕ?о Ф хгр?≤Д хнФгЕо ?≤ ░р?ДЕ яг гДйнгх ≤До.
-        // хяг? сго░?║ г?Длг гр ?≤ зоо йугощ? х?Д 1 йг 13 гсйщгоЕ тоЕ гсй.
         return Random.Range(1, 14);
     }
 
