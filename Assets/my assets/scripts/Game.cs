@@ -1,14 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
     public List<Player> players;
     public int currentRound;
-
+    public Button[] categoryButtons;
+    public Button submitButton;
+    public Button rollButton;
+    int selectedCategory;
+    int rollClick=0;
+    public List<GameObject> diceObjects;
+    public List<GameObject> lockObjects;
     void Start()
     {
-        // ‘—Ê⁄ »«“? »«  ⁄œ«œ »«“?ò‰«‰ „‘Œ’
         StartGame(2);
     }
 
@@ -24,37 +30,26 @@ public class Game : MonoBehaviour
         StartRound();
     }
 
-    void StartRound()
+    public void OnCategoryButtonClick(Button button)
     {
-        Debug.Log("Round " + currentRound);
 
-        foreach (Player player in players)
-        {
-            Dice[] dice = FindObjectsOfType<Dice>();
-            player.RollDice(dice);
+        int buttonIndex = System.Array.IndexOf(categoryButtons, button);
 
-            // ‰„«?‘ ‰ «?Ã Å” «“ Å— «»  «”ùÂ«
-            Debug.Log(player.playerName + "'s Dice Values: " + GetDiceValues(dice));
-            Debug.Log(player.playerName + "'s Scoresheet:");
-            DisplayScoreSheet(player);
-        }
+         selectedCategory = buttonIndex + 1;
 
-        // „—Õ·Â «„ ?«“œÂ?
-        ScoreRound();
     }
 
-    public void ScoreRound()
+    public void OnSubmitButtonClick()
     {
-        foreach (Player player in players)
-        {
-            // «‰ Œ«» œ” Âù? «„ ?«“œÂ?
-            int selectedCategory = GetSelectedCategoryFromPlayer(player);
-
-            // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-            player.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
-        }
-
+        resetAlldice();
+        
+        rollClick = 0;
+       rollButton.gameObject.SetActive(true); 
+        Player currentPlayer = players[0];
+        // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
+        currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
         // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
+        //ScoreRound();
         currentRound++;
         if (currentRound <= 13) // 13 œÊ— œ— »«“? Yahtzee
         {
@@ -64,6 +59,40 @@ public class Game : MonoBehaviour
         {
             EndGame();
         }
+    }
+    void StartRound()
+    {
+        Debug.Log("Round " + currentRound);
+
+        foreach (Player player in players)
+        {
+            Dice[] dice = FindObjectsOfType<Dice>();
+            
+            
+           // player.RollDice(dice);
+
+         // ‰„«?‘ ‰ «?Ã Å” «“ Å— «»  «”ùÂ«
+         // Debug.Log(player.playerName + "'s Dice Values: " +GetDiceValues(dice));
+         //   Debug.Log(player.playerName + "'s Scoresheet:");
+            DisplayScoreSheet(player);
+        }
+
+        // „—Õ·Â «„ ?«“œÂ?
+        
+    }
+
+    public void ScoreRound()
+    {
+        foreach (Player player in players)
+        {
+            // «‰ Œ«» œ” Âù? «„ ?«“œÂ?
+           // int selectedCategory = GetSelectedCategoryFromPlayer(player);
+
+            // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
+            player.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
+        }
+
+        
     }
 
     void EndGame()
@@ -104,4 +133,32 @@ public class Game : MonoBehaviour
         }
         return values;
     }
+public void rollBu()
+    {
+        allDices();
+        if (rollClick >= 3) { rollButton.gameObject.SetActive(false); }
+        rollClick++;
+    }
+    public void resetAlldice()
+    {
+
+        foreach(GameObject l in lockObjects)
+        {
+            l.SetActive(false);
+        }
+     foreach(GameObject D in diceObjects)
+        {
+            D.SetActive(false);
+        }
+
+    }
+    public void allDices()
+    {
+        foreach (GameObject D in diceObjects)
+        {
+            D.SetActive(true);
+        }
+
+    }
+
 }

@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class DiceAnimation : MonoBehaviour
 {
-    public Sprite[] diceSprites; // آرایه‌ای از اسپرایت‌های تاس
-    public Image diceImage; // کامپوننت Image تاس
-    public GameObject image; // کامپوننت Image تاس
-    public GameObject image2; // کامپوننت Image تاس
-    public float animationDuration = 0.8f; // مدت زمان انیمیشن به ثانیه
- // public int targetNumber = 6; // عدد خاص
+    public Sprite[] diceSprites;
+    public Image diceImage;
+    public GameObject image;
+    public GameObject image2;
+    public float animationDuration = 0.8f; 
     public int faceValue;
     public bool isLocked;
 
@@ -59,6 +58,7 @@ public class DiceAnimation : MonoBehaviour
         Debug.Log("Die is " + (isLocked ? "locked" : "unlocked"));
     
     }
+   
   
 }
 

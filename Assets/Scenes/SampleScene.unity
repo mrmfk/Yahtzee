@@ -1141,7 +1141,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 296033947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 296033946}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &296033947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,7 +1277,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 315678754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 315678753}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &315678754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +1617,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: rollBu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1909693605}
         m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
         m_MethodName: Roll
@@ -2685,7 +2721,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 642389152}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 642389151}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &642389152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2809,7 +2857,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 657506624}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 657506623}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &657506624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,7 +2993,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 661207675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 661207674}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &661207675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3287,7 +3359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 778394100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 778394099}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &778394100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3844,7 +3928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 890852458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 890852457}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &890852458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,7 +4965,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137992643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1137992642}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1137992643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4920,7 +5028,7 @@ GameObject:
   - component: {fileID: 1153957759}
   - component: {fileID: 1153957758}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: gameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4956,6 +5064,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   currentRound: 0
+  categoryButtons:
+  - {fileID: 1167566256}
+  - {fileID: 642389151}
+  - {fileID: 657506623}
+  - {fileID: 1236324128}
+  - {fileID: 315678753}
+  - {fileID: 315678753}
+  - {fileID: 1137992642}
+  - {fileID: 2087151156}
+  - {fileID: 1277632391}
+  - {fileID: 661207674}
+  - {fileID: 1768329683}
+  - {fileID: 778394099}
+  - {fileID: 296033946}
+  submitButton: {fileID: 1440509840}
+  rollButton: {fileID: 425976175}
+  diceObjects:
+  - {fileID: 1909693603}
+  - {fileID: 841864629}
+  - {fileID: 1127218137}
+  - {fileID: 2013437401}
+  - {fileID: 2008710577}
+  lockObjects:
+  - {fileID: 1225192446}
+  - {fileID: 1706359261}
+  - {fileID: 1884520723}
+  - {fileID: 911363479}
+  - {fileID: 1604214813}
 --- !u!4 &1153957760
 Transform:
   m_ObjectHideFlags: 0
@@ -5136,7 +5272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1167566257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1167566256}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1167566257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5465,7 +5613,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1236324129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1236324128}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1236324129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5589,7 +5749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1277632392}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1277632391}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1277632392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6010,7 +6182,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1153957759}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
-        m_MethodName: ScoreRound
+        m_MethodName: OnSubmitButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6835,7 +7007,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1768329684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1768329683}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1768329684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8079,7 +8263,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2087151157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1153957759}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: OnCategoryButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2087151156}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2087151157
 MonoBehaviour:
   m_ObjectHideFlags: 0
