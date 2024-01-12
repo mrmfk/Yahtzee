@@ -32,10 +32,14 @@ public class Game : MonoBehaviour
 
     public void OnCategoryButtonClick(Button button)
     {
+        foreach (Button b in categoryButtons) {
+            b.GetComponent<Image>().color = Color.white;
+        }
+
 
         int buttonIndex = System.Array.IndexOf(categoryButtons, button);
-
-         selectedCategory = buttonIndex + 1;
+        categoryButtons[buttonIndex].GetComponent<Image>().color = Color.green;
+        selectedCategory = buttonIndex + 1;
 
     }
 
@@ -136,13 +140,17 @@ public class Game : MonoBehaviour
 public void rollBu()
     {
         allDices();
-        if (rollClick >= 3) { rollButton.gameObject.SetActive(false); }
+        if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
         rollClick++;
     }
     public void resetAlldice()
     {
+        foreach (Button b in categoryButtons)
+        {
+            b.GetComponent<Image>().color = Color.white;
+        }
 
-        foreach(GameObject l in lockObjects)
+        foreach (GameObject l in lockObjects)
         {
             l.SetActive(false);
         }
