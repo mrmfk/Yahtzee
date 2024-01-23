@@ -10,14 +10,14 @@ public class Dice : MonoBehaviour
         if (!isLocked)
         {
             faceValue = Random.Range(1, 7);
-            Debug.Log("Die rolled: " + faceValue);
+            //Debug.Log("Die rolled: " + faceValue);
         }
     }
 
     public void ToggleLock()
     {
         isLocked = !isLocked;
-        Debug.Log("Die is " + (isLocked ? "locked" : "unlocked"));
+        //Debug.Log("Die is " + (isLocked ? "locked" : "unlocked"));
     }
 
 
