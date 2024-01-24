@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public string playerName;
     public List<int> scores; 
+    public List<bool> scoreChooce; 
     public int totalScore; 
     public bool[] diceLocked; 
 
@@ -14,7 +15,13 @@ public class Player : MonoBehaviour
     {
         playerName = name;
         scores = new List<int>();
+        scoreChooce = new List<bool>();
         diceLocked = new bool[5];
+        for (int i = 0; i < 13; i++)
+        {
+            scores.Add(0);
+            scoreChooce.Add(false);
+        }
     }
 
     public void RollDice(Dice[] dice)
@@ -81,7 +88,8 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        scores.Add(score);
+        scores[category-1]=score;
+        scoreChooce[category-1]=true;
     }
 
     // ÊÚÏÇÏ ÊÇÓåÇ?? ˜å ÏÇÑÇ? ?˜ ãÞÏÇÑ ÎÇÕ åÓÊäÏ ÑÇ ÈÑã?ÑÏÇäÏ

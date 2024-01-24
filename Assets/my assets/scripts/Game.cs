@@ -13,6 +13,9 @@ public class Game : MonoBehaviour
     int rollClick=0;
     public List<GameObject> diceObjects;
     public List<GameObject> lockObjects;
+    public List<DiceAnimation> diceList;
+    public bool turnp1=true;
+    int buttonIndexGlob = -1;
     void Start()
     {
         StartGame(2);
@@ -36,33 +39,65 @@ public class Game : MonoBehaviour
             b.GetComponent<Image>().color = Color.white;
         }
 
+        if (turnp1)
+        {
+            int buttonIndex = System.Array.IndexOf(categoryButtons, button);
+            if (!players[0].scoreChooce[buttonIndex])
+            {
+                categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+                selectedCategory = buttonIndex + 1;
+                buttonIndexGlob = buttonIndex;
+            }
+            else { Debug.Log("select other one"); }
 
-        int buttonIndex = System.Array.IndexOf(categoryButtons, button);
-        categoryButtons[buttonIndex].GetComponent<Image>().color = Color.green;
-        selectedCategory = buttonIndex + 1;
+        }
+        else
+        {
+                int buttonIndex = System.Array.IndexOf(categoryButtons, button);
+                if (!players[1].scoreChooce[buttonIndex])
+                {
+                    categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+                    selectedCategory = buttonIndex + 1;
+                    buttonIndexGlob = buttonIndex;
+            }
+                else { Debug.Log("select other one"); }
 
+            
+        }
+        
     }
 
     public void OnSubmitButtonClick()
     {
-        resetAlldice();
-        
-        rollClick = 0;
-       rollButton.gameObject.SetActive(true); 
-        Player currentPlayer = players[0];
-        // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-        currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
-        // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
-        //ScoreRound();
-        currentRound++;
-        if (currentRound <= 13) // 13 œÊ— œ— »«“? Yahtzee
+        if (buttonIndexGlob != -1 && diceObjects[0].active)
         {
-            StartRound();
+            resetAlldice();
+
+            rollClick = 0;
+            rollButton.gameObject.SetActive(true);
+            Player currentPlayer;
+            if (turnp1)
+                currentPlayer = players[0];
+            else
+                currentPlayer = players[1];
+
+            turnp1 = !turnp1;
+            // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
+            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
+            // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
+            //ScoreRound();
+            currentRound++;
+            buttonIndexGlob = -1;
+            if (currentRound <= 13) // 13 œÊ— œ— »«“? Yahtzee
+            {
+                StartRound();
+            }
+            else
+            {
+                EndGame();
+            }
         }
-        else
-        {
-            EndGame();
-        }
+        else { Debug.Log("choose category first"); }
     }
     void StartRound()
     {
@@ -137,7 +172,7 @@ public class Game : MonoBehaviour
         }
         return values;
     }
-public void rollBu()
+    public void rollBu()
     {
         allDices();
         if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
@@ -152,6 +187,9 @@ public void rollBu()
 
         foreach (GameObject l in lockObjects)
         {
+            if (l.active)
+                diceList[lockObjects.IndexOf(l)].isLocked = !diceList[lockObjects.IndexOf(l)].isLocked;
+
             l.SetActive(false);
         }
      foreach(GameObject D in diceObjects)
