@@ -15,7 +15,9 @@ public class Game : MonoBehaviour
     public List<GameObject> lockObjects;
     public List<DiceAnimation> diceList;
     public bool turnp1=true;
-    int buttonIndexGlob = -1;
+    public int buttonIndexGlob = -1;
+    public Text[] p1Scores;
+    public Text[] p2Scores;
     void Start()
     {
         StartGame(2);
@@ -28,7 +30,6 @@ public class Game : MonoBehaviour
         {
             players.Add(new Player("Player " + (i + 1)));
         }
-
         currentRound = 1;
         StartRound();
     }
@@ -69,7 +70,7 @@ public class Game : MonoBehaviour
 
     public void OnSubmitButtonClick()
     {
-        if (buttonIndexGlob != -1 && diceObjects[0].active)
+        if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
         {
             resetAlldice();
 
@@ -83,12 +84,13 @@ public class Game : MonoBehaviour
 
             turnp1 = !turnp1;
             // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
+            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList));
+            updateScores();
             // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
             //ScoreRound();
             currentRound++;
             buttonIndexGlob = -1;
-            if (currentRound <= 13) // 13 œÊ— œ— »«“? Yahtzee
+            if (currentRound <= 26) // 13 œÊ— œ— »«“? Yahtzee
             {
                 StartRound();
             }
@@ -98,6 +100,18 @@ public class Game : MonoBehaviour
             }
         }
         else { Debug.Log("choose category first"); }
+    }
+    public void updateScores()
+    {
+        for (int i = 0; i < 13; i++)
+        {
+           p1Scores[i].text= players[0].scores[i].ToString();
+           p1Scores[i].text= players[1].scores[i].ToString();
+        }
+
+
+
+
     }
     void StartRound()
     {
@@ -122,16 +136,17 @@ public class Game : MonoBehaviour
 
     public void ScoreRound()
     {
-        foreach (Player player in players)
-        {
+        
             // «‰ Œ«» œ” Âù? «„ ?«“œÂ?
            // int selectedCategory = GetSelectedCategoryFromPlayer(player);
 
             // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-            player.ScoreInCategory(selectedCategory, GetDiceValues(FindObjectsOfType<Dice>()));
-        }
+      /*  if(turnp1)
+            players[0].ScoreInCategory(selectedCategory, GetDiceValues(diceList));
+        else
+            players[1].ScoreInCategory(selectedCategory, GetDiceValues(diceList));*/
 
-        
+
     }
 
     void EndGame()
@@ -163,10 +178,10 @@ public class Game : MonoBehaviour
     }
 
     // ê—› ‰ „ﬁ«œ?—  «”ùÂ«
-    int[] GetDiceValues(Dice[] dice)
+    int[] GetDiceValues(List<DiceAnimation> dice)
     {
-        int[] values = new int[dice.Length];
-        for (int i = 0; i < dice.Length; i++)
+        int[] values = new int[5];
+        for (int i = 0; i < 5; i++)
         {
             values[i] = dice[i].faceValue;
         }

@@ -5100,6 +5100,35 @@ MonoBehaviour:
   - {fileID: 2013437403}
   - {fileID: 2008710579}
   turnp1: 0
+  buttonIndexGlob: -1
+  p1Scores:
+  - {fileID: 168433418}
+  - {fileID: 282758437}
+  - {fileID: 234509221}
+  - {fileID: 752788651}
+  - {fileID: 557252377}
+  - {fileID: 1998929141}
+  - {fileID: 1670244815}
+  - {fileID: 1756866738}
+  - {fileID: 1387848651}
+  - {fileID: 1109104589}
+  - {fileID: 735737271}
+  - {fileID: 549469856}
+  - {fileID: 1596958654}
+  p2Scores:
+  - {fileID: 2089949949}
+  - {fileID: 834833169}
+  - {fileID: 1115536591}
+  - {fileID: 958102415}
+  - {fileID: 1584607956}
+  - {fileID: 1155047952}
+  - {fileID: 614227356}
+  - {fileID: 471353219}
+  - {fileID: 1013753032}
+  - {fileID: 531527160}
+  - {fileID: 796138365}
+  - {fileID: 430486255}
+  - {fileID: 286965012}
 --- !u!4 &1153957760
 Transform:
   m_ObjectHideFlags: 0
