@@ -16,8 +16,8 @@ public class Game : MonoBehaviour
     public List<DiceAnimation> diceList;
     public bool turnp1=true;
     public int buttonIndexGlob = -1;
-    public Text[] p1Scores;
     public Text[] p2Scores;
+    public Text[] p1Scores;
     void Start()
     {
         StartGame(2);
@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
             else
                 currentPlayer = players[1];
 
-            turnp1 = !turnp1;
+            
             // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
             currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList));
             updateScores();
@@ -90,9 +90,13 @@ public class Game : MonoBehaviour
             //ScoreRound();
             currentRound++;
             buttonIndexGlob = -1;
+            turnp1 = !turnp1;
             if (currentRound <= 26) // 13 œÊ— œ— »«“? Yahtzee
             {
-                StartRound();
+                // StartRound();
+                Debug.Log("Round " + currentRound);
+                Debug.Log("p1  " + players[0].totalScore);
+                Debug.Log("p2  " + players[1].totalScore);
             }
             else
             {
@@ -105,11 +109,12 @@ public class Game : MonoBehaviour
     {
         for (int i = 0; i < 13; i++)
         {
-           p1Scores[i].text= players[0].scores[i].ToString();
            p1Scores[i].text= players[1].scores[i].ToString();
+           p1Scores[i].text= players[0].scores[i].ToString();
         }
 
-
+        p1Scores[13].text = players[1].totalScore.ToString();
+        p1Scores[13].text = players[0].totalScore.ToString();
 
 
     }

@@ -71,6 +71,9 @@ public class Player : MonoBehaviour
             case 8: // Four of a Kind
                 score = GetNOfAKindScore(diceValues, 4);
                 break;
+            case 9: // Yahtzee
+                score = GetYahtzeeScore(diceValues);
+                break;
             case 10: // Full House
                 score = GetFullHouseScore(diceValues);
                 break;
@@ -79,9 +82,6 @@ public class Player : MonoBehaviour
                 break;
             case 12: // Large Straight
                 score = GetLargeStraightScore(diceValues);
-                break;
-            case 9: // Yahtzee
-                score = GetYahtzeeScore(diceValues);
                 break;
             case 13: // Chance
                 score = GetChanceScore(diceValues);

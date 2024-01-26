@@ -55,7 +55,7 @@ public class DiceAnimation : MonoBehaviour
         image2.SetActive(false);
         else image2.SetActive(true);
         isLocked = !isLocked;
-        Debug.Log("Die is " + (isLocked ? "locked" : "unlocked"));
+       // Debug.Log("Die is " + (isLocked ? "locked" : "unlocked"));
     
     }
    
