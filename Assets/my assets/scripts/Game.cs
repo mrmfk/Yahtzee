@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     public int buttonIndexGlob = -1;
     public Text[] p2Scores;
     public Text[] p1Scores;
+    public Text labelTurn;
     void Start()
     {
         StartGame(2);
@@ -31,7 +32,7 @@ public class Game : MonoBehaviour
             players.Add(new Player("Player " + (i + 1)));
         }
         currentRound = 1;
-        StartRound();
+       // StartRound();
     }
 
     public void OnCategoryButtonClick(Button button)
@@ -72,8 +73,8 @@ public class Game : MonoBehaviour
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
         {
-            resetAlldice();
 
+            labelUp();
             rollClick = 0;
             rollButton.gameObject.SetActive(true);
             Player currentPlayer;
@@ -84,13 +85,28 @@ public class Game : MonoBehaviour
 
             
             // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList));
-            updateScores();
+            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList),currentPlayer);
+            // updateScores();
             // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
             //ScoreRound();
+            if (turnp1)
+            {
+                p1Scores[selectedCategory-1].text = players[0].scores[selectedCategory-1].ToString();
+                p1Scores[13].text = players[0].totalScore.ToString();
+
+            }
+            else
+            {
+
+                p2Scores[selectedCategory-1].text = players[1].scores[selectedCategory-1].ToString();
+                p2Scores[13].text = players[1].totalScore.ToString();
+
+
+            }
             currentRound++;
             buttonIndexGlob = -1;
             turnp1 = !turnp1;
+            resetAlldice();
             if (currentRound <= 26) // 13 œÊ— œ— »«“? Yahtzee
             {
                 // StartRound();
@@ -110,11 +126,11 @@ public class Game : MonoBehaviour
         for (int i = 0; i < 13; i++)
         {
            p1Scores[i].text= players[1].scores[i].ToString();
-           p1Scores[i].text= players[0].scores[i].ToString();
+           p2Scores[i].text= players[0].scores[i].ToString();
         }
 
         p1Scores[13].text = players[1].totalScore.ToString();
-        p1Scores[13].text = players[0].totalScore.ToString();
+        p2Scores[13].text = players[0].totalScore.ToString();
 
 
     }
@@ -188,7 +204,7 @@ public class Game : MonoBehaviour
         int[] values = new int[5];
         for (int i = 0; i < 5; i++)
         {
-            values[i] = dice[i].faceValue;
+            values[i] = dice[i].faceValue+1;
         }
         return values;
     }
@@ -224,6 +240,12 @@ public class Game : MonoBehaviour
         {
             D.SetActive(true);
         }
+
+    }
+    public void labelUp()
+    {
+        if (labelTurn.text == "PLAYER 1's TURN" ) { labelTurn.text = "PLAYER 2's TURN"; }
+        else { labelTurn.text = "PLAYER 1's TURN"; }
 
     }
 

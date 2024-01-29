@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void ScoreInCategory(int category, int[] diceValues)
+    public void ScoreInCategory(int category, int[] diceValues,Player p)
     {
         int score = 0;
 
@@ -88,8 +88,9 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        scores[category-1]=score;
-        scoreChooce[category-1]=true;
+        p.scores[category-1]=score;
+        p.scoreChooce[category-1]=true;
+        p.totalScore += score;
     }
 
     //  ⁄œ«œ  «”ùÂ«?? òÂ œ«—«? ?ò „ﬁœ«— Œ«’ Â” ‰œ —« »—„?ùê—œ«‰œ
