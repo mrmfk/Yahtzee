@@ -121,54 +121,6 @@ public class Game : MonoBehaviour
         }
         else { Debug.Log("choose category first"); }
     }
-    public void updateScores()
-    {
-        for (int i = 0; i < 13; i++)
-        {
-           p1Scores[i].text= players[1].scores[i].ToString();
-           p2Scores[i].text= players[0].scores[i].ToString();
-        }
-
-        p1Scores[13].text = players[1].totalScore.ToString();
-        p2Scores[13].text = players[0].totalScore.ToString();
-
-
-    }
-    void StartRound()
-    {
-        Debug.Log("Round " + currentRound);
-
-        foreach (Player player in players)
-        {
-            Dice[] dice = FindObjectsOfType<Dice>();
-            
-            
-           // player.RollDice(dice);
-
-         // ‰„«?‘ ‰ «?Ã Å” «“ Å— «»  «”ùÂ«
-         // Debug.Log(player.playerName + "'s Dice Values: " +GetDiceValues(dice));
-         //   Debug.Log(player.playerName + "'s Scoresheet:");
-            DisplayScoreSheet(player);
-        }
-
-        // „—Õ·Â «„ ?«“œÂ?
-        
-    }
-
-    public void ScoreRound()
-    {
-        
-            // «‰ Œ«» œ” Âù? «„ ?«“œÂ?
-           // int selectedCategory = GetSelectedCategoryFromPlayer(player);
-
-            // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
-      /*  if(turnp1)
-            players[0].ScoreInCategory(selectedCategory, GetDiceValues(diceList));
-        else
-            players[1].ScoreInCategory(selectedCategory, GetDiceValues(diceList));*/
-
-
-    }
 
     void EndGame()
     {
