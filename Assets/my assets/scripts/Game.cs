@@ -16,8 +16,8 @@ public class Game : MonoBehaviour
     public List<DiceAnimation> diceList;
     public bool turnp1=true;
     public int buttonIndexGlob = -1;
-    public Text[] p2Scores;
     public Text[] p1Scores;
+    public Text[] p2Scores;
     public Text labelTurn;
     void Start()
     {
@@ -37,13 +37,19 @@ public class Game : MonoBehaviour
 
     public void OnCategoryButtonClick(Button button)
     {
+
+        int buttonIndex = System.Array.IndexOf(categoryButtons, button);
         foreach (Button b in categoryButtons) {
-            b.GetComponent<Image>().color = Color.white;
+
+                    //b.GetComponent<Image>().color = Color.white;
+            
+            
+
         }
+        diceColorReset(turnp1);
 
         if (turnp1)
         {
-            int buttonIndex = System.Array.IndexOf(categoryButtons, button);
             if (!players[0].scoreChooce[buttonIndex])
             {
                 categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
@@ -55,7 +61,6 @@ public class Game : MonoBehaviour
         }
         else
         {
-                int buttonIndex = System.Array.IndexOf(categoryButtons, button);
                 if (!players[1].scoreChooce[buttonIndex])
                 {
                     categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
@@ -83,12 +88,9 @@ public class Game : MonoBehaviour
             else
                 currentPlayer = players[1];
 
-            
-            // «„ ?«“œÂ? »Â »«“?ò‰ »— «”«” œ” Âù? «‰ Œ«» ‘œÂ
+        
             currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList),currentPlayer);
-            // updateScores();
-            // « „«„ œÊ— Ê «œ«„Â »Â œÊ— »⁄œ? ?« Å«?«‰ »«“?...
-            //ScoreRound();
+           
             if (turnp1)
             {
                 p1Scores[selectedCategory-1].text = players[0].scores[selectedCategory-1].ToString();
@@ -105,9 +107,10 @@ public class Game : MonoBehaviour
             }
             currentRound++;
             buttonIndexGlob = -1;
+
             turnp1 = !turnp1;
             resetAlldice();
-            if (currentRound <= 26) // 13 œÊ— œ— »«“? Yahtzee
+            if (currentRound <= 26) 
             {
                 // StartRound();
                 Debug.Log("Round " + currentRound);
@@ -134,23 +137,8 @@ public class Game : MonoBehaviour
         }
     }
 
-    // «‰ Œ«» œ” Âù? «„ ?«“œÂ? «“ »«“?ò‰
-    public int GetSelectedCategoryFromPlayer(Player player)
-    {
-        return Random.Range(1, 14);
-    }
 
-    // ‰„«?‘ ‰ «?Ã «„ ?«“œÂ? »—«? ?ò »«“?ò‰
-    void DisplayScoreSheet(Player player)
-    {
-        foreach (int score in player.scores)
-        {
-            Debug.Log(score);
-        }
-        Debug.Log("Total Score: " + player.totalScore);
-    }
 
-    // ê—› ‰ „ﬁ«œ?—  «”ùÂ«
     int[] GetDiceValues(List<DiceAnimation> dice)
     {
         int[] values = new int[5];
@@ -168,11 +156,8 @@ public class Game : MonoBehaviour
     }
     public void resetAlldice()
     {
-        foreach (Button b in categoryButtons)
-        {
-            b.GetComponent<Image>().color = Color.white;
-        }
-
+        diceColorReset(turnp1);
+ 
         foreach (GameObject l in lockObjects)
         {
             if (l.active)
@@ -185,12 +170,37 @@ public class Game : MonoBehaviour
             D.SetActive(false);
         }
 
+    
     }
     public void allDices()
     {
         foreach (GameObject D in diceObjects)
         {
             D.SetActive(true);
+        }
+
+    }
+    public void diceColorReset(bool trn)
+    {
+        if (trn)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                if (players[0].scoreChooce[i])
+                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                else
+                    categoryButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                if (players[1].scoreChooce[i])
+                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                else
+                    categoryButtons[i].GetComponent<Image>().color = Color.white;
+            }
         }
 
     }

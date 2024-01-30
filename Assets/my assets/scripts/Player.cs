@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         p.totalScore += score;
     }
 
-    //  ⁄œ«œ  «”ùÂ«?? òÂ œ«—«? ?ò „ﬁœ«— Œ«’ Â” ‰œ —« »—„?ùê—œ«‰œ
+
     private int CountDiceWithValue(int[] diceValues, int value)
     {
         int count = 0;
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         return count * value;
     }
 
-    // «„ ?«“ ?ò œ” Â N «“ ?ò ‰Ê⁄ („À· Three of a Kind ?« Four of a Kind)
+
     private int GetNOfAKindScore(int[] diceValues, int n)
     {
         Array.Sort(diceValues);
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
         return 0;
     }
 
-    // «„ ?«“ Full House
+
     private int GetFullHouseScore(int[] diceValues)
     {
         Array.Sort(diceValues);
@@ -133,7 +133,6 @@ public class Player : MonoBehaviour
         return 0;
     }
 
-    // «„ ?«“ Small Straight
     private int GetSmallStraightScore(int[] diceValues)
     {
         Array.Sort(diceValues);
@@ -149,7 +148,7 @@ public class Player : MonoBehaviour
         return 0;
     }
 
-    // «„ ?«“ Large Straight
+
     private int GetLargeStraightScore(int[] diceValues)
     {
         Array.Sort(diceValues);
@@ -166,7 +165,7 @@ public class Player : MonoBehaviour
         return 0;
     }
 
-    // «„ ?«“ Yahtzee
+
     private int GetYahtzeeScore(int[] diceValues)
     {
         for (int i = 0; i <= diceValues.Length - 5; i++)
@@ -182,13 +181,13 @@ public class Player : MonoBehaviour
         return 0;
     }
 
-    // «„ ?«“ Chance
+
     private int GetChanceScore(int[] diceValues)
     {
         return SumDiceValues(diceValues);
     }
 
-    // Ã„⁄ „ﬁ«œ?—  «”ùÂ«
+
     private int SumDiceValues(int[] diceValues)
     {
         int sum = 0;
