@@ -24,16 +24,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void RollDice(Dice[] dice)
-    {
-        for (int i = 0; i < dice.Length; i++)
-        {
-            if (!diceLocked[i])
-            {
-                dice[i].Roll();
-            }
-        }
-    }
+
 
     public void ToggleDiceLock(int index)
     {
@@ -41,14 +32,7 @@ public class Player : MonoBehaviour
         Debug.Log(playerName + "'s die " + (index + 1) + " is " + (diceLocked[index] ? "locked" : "unlocked"));
     }
 
-    public void CalculateTotalScore()
-    {
-        totalScore = 0;
-        foreach (int score in scores)
-        {
-            totalScore += score;
-        }
-    }
+
 
 
     public void ScoreInCategory(int category, int[] diceValues,Player p)

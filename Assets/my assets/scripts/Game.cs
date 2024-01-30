@@ -34,18 +34,10 @@ public class Game : MonoBehaviour
         currentRound = 1;
        // StartRound();
     }
-
     public void OnCategoryButtonClick(Button button)
     {
 
         int buttonIndex = System.Array.IndexOf(categoryButtons, button);
-        foreach (Button b in categoryButtons) {
-
-                    //b.GetComponent<Image>().color = Color.white;
-            
-            
-
-        }
         diceColorReset(turnp1);
 
         if (turnp1)
@@ -73,7 +65,6 @@ public class Game : MonoBehaviour
         }
         
     }
-
     public void OnSubmitButtonClick()
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
@@ -124,7 +115,6 @@ public class Game : MonoBehaviour
         }
         else { Debug.Log("choose category first"); }
     }
-
     void EndGame()
     {
         // «‰Ã«„ ⁄„·?«  Å«?«‰ »«“?
@@ -136,9 +126,6 @@ public class Game : MonoBehaviour
             Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
         }
     }
-
-
-
     int[] GetDiceValues(List<DiceAnimation> dice)
     {
         int[] values = new int[5];
