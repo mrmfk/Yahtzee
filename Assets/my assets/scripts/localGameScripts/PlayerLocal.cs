@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerLocal : MonoBehaviour
 {
     public string playerName;
     public List<int> scores; 
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int totalScore; 
     public bool[] diceLocked; 
 
-    public Player(string name)
+    public PlayerLocal(string name)
     {
         playerName = name;
         scores = new List<int>();
@@ -25,17 +25,7 @@ public class Player : MonoBehaviour
     }
 
 
-
-    public void ToggleDiceLock(int index)
-    {
-        diceLocked[index] = !diceLocked[index];
-        Debug.Log(playerName + "'s die " + (index + 1) + " is " + (diceLocked[index] ? "locked" : "unlocked"));
-    }
-
-
-
-
-    public void ScoreInCategory(int category, int[] diceValues,Player p)
+    public void ScoreInCategory(int category, int[] diceValues,PlayerLocal p)
     {
         int score = 0;
 

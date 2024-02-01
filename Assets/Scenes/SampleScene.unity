@@ -1143,8 +1143,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -1279,8 +1279,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -1781,8 +1781,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: rollBu
         m_Mode: 1
         m_Arguments:
@@ -1793,8 +1793,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1909693605}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1909693609}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -1805,8 +1805,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 841864631}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 841864635}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -1817,8 +1817,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1127218139}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1127218143}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -1829,8 +1829,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2013437403}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 2013437407}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -1841,8 +1841,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2008710579}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 2008710583}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -2887,8 +2887,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -3023,8 +3023,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -3159,8 +3159,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -3525,8 +3525,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -3859,8 +3859,8 @@ GameObject:
   - component: {fileID: 841864630}
   - component: {fileID: 841864633}
   - component: {fileID: 841864632}
-  - component: {fileID: 841864631}
   - component: {fileID: 841864634}
+  - component: {fileID: 841864635}
   m_Layer: 5
   m_Name: d2
   m_TagString: Untagged
@@ -3889,31 +3889,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &841864631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841864629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ecf5cc174500d49911cf64bf5ead11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
-  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
-  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
-  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
-  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
-  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
-  diceImage: {fileID: 841864632}
-  image: {fileID: 841864629}
-  image2: {fileID: 1706359261}
-  animationDuration: 3
-  faceValue: 0
-  isLocked: 0
 --- !u!114 &841864632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3996,8 +3971,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 841864631}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 841864635}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: ToggleLock
         m_Mode: 1
         m_Arguments:
@@ -4008,6 +3983,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &841864635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841864629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19c2900e173804aa4491adcd7ded1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
+  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
+  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
+  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
+  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
+  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
+  diceImage: {fileID: 841864632}
+  image: {fileID: 841864629}
+  image2: {fileID: 1706359261}
+  animationDuration: 3
+  faceValue: 0
+  isLocked: 0
 --- !u!1 &843769903
 GameObject:
   m_ObjectHideFlags: 0
@@ -4174,8 +4174,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -4976,8 +4976,8 @@ GameObject:
   - component: {fileID: 1127218138}
   - component: {fileID: 1127218141}
   - component: {fileID: 1127218140}
-  - component: {fileID: 1127218139}
   - component: {fileID: 1127218142}
+  - component: {fileID: 1127218143}
   m_Layer: 5
   m_Name: d3
   m_TagString: Untagged
@@ -5006,31 +5006,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1127218139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127218137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ecf5cc174500d49911cf64bf5ead11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
-  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
-  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
-  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
-  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
-  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
-  diceImage: {fileID: 1127218140}
-  image: {fileID: 1127218137}
-  image2: {fileID: 1884520723}
-  animationDuration: 3
-  faceValue: 0
-  isLocked: 0
 --- !u!114 &1127218140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5113,8 +5088,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1127218139}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1127218143}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: ToggleLock
         m_Mode: 1
         m_Arguments:
@@ -5125,6 +5100,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1127218143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127218137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19c2900e173804aa4491adcd7ded1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
+  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
+  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
+  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
+  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
+  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
+  diceImage: {fileID: 1127218140}
+  image: {fileID: 1127218137}
+  image2: {fileID: 1884520723}
+  animationDuration: 3
+  faceValue: 0
+  isLocked: 0
 --- !u!1 &1137992640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,8 +5211,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -5350,8 +5350,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1153957760}
-  - component: {fileID: 1153957759}
-  - component: {fileID: 1153957758}
+  - component: {fileID: 1153957762}
+  - component: {fileID: 1153957761}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -5359,7 +5359,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1153957758
+--- !u!4 &1153957760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153957757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 651.63477, y: 99.87318, z: -4.2857018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1153957761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5368,24 +5383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1153957757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea3289e5e7b5d941be7265669cd759b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerName: 1
-  scores: 
-  scoreChooce: 
-  totalScore: 0
-  diceLocked: 
---- !u!114 &1153957759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153957757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ceec2c530507774d8b6f5609a0223af, type: 3}
+  m_Script: {fileID: 11500000, guid: 72a144151d91c8e418db24bca8ede89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
@@ -5419,29 +5417,14 @@ MonoBehaviour:
   - {fileID: 911363479}
   - {fileID: 1604214813}
   diceList:
-  - {fileID: 1909693605}
-  - {fileID: 841864631}
-  - {fileID: 1127218139}
-  - {fileID: 2013437403}
-  - {fileID: 2008710579}
-  turnp1: 0
+  - {fileID: 1909693609}
+  - {fileID: 841864635}
+  - {fileID: 1127218143}
+  - {fileID: 2013437407}
+  - {fileID: 2008710583}
+  turnp1: 1
   buttonIndexGlob: -1
   p1Scores:
-  - {fileID: 168433418}
-  - {fileID: 282758437}
-  - {fileID: 234509221}
-  - {fileID: 752788651}
-  - {fileID: 557252377}
-  - {fileID: 1998929141}
-  - {fileID: 1670244815}
-  - {fileID: 1756866738}
-  - {fileID: 1387848651}
-  - {fileID: 1109104589}
-  - {fileID: 735737271}
-  - {fileID: 549469856}
-  - {fileID: 1596958654}
-  - {fileID: 142517695}
-  p2Scores:
   - {fileID: 2089949949}
   - {fileID: 834833169}
   - {fileID: 1115536591}
@@ -5456,22 +5439,39 @@ MonoBehaviour:
   - {fileID: 430486255}
   - {fileID: 286965012}
   - {fileID: 1906842668}
+  p2Scores:
+  - {fileID: 168433418}
+  - {fileID: 282758437}
+  - {fileID: 234509221}
+  - {fileID: 752788651}
+  - {fileID: 557252377}
+  - {fileID: 1998929141}
+  - {fileID: 1670244815}
+  - {fileID: 1756866738}
+  - {fileID: 1387848651}
+  - {fileID: 1109104589}
+  - {fileID: 735737271}
+  - {fileID: 549469856}
+  - {fileID: 1596958654}
+  - {fileID: 142517695}
   labelTurn: {fileID: 390642794}
---- !u!4 &1153957760
-Transform:
+--- !u!114 &1153957762
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153957757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 651.63477, y: 99.87318, z: -4.2857018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d21bd8c65b51b4aa8d93d5ac641729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 1
+  scores: 
+  scoreChooce: 
+  totalScore: 0
+  diceLocked: 
 --- !u!1 &1155047950
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,8 +5638,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -5979,8 +5979,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -6115,8 +6115,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -6627,8 +6627,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnSubmitButtonClick
         m_Mode: 1
         m_Arguments:
@@ -7456,8 +7456,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
@@ -8040,8 +8040,8 @@ GameObject:
   - component: {fileID: 1909693604}
   - component: {fileID: 1909693607}
   - component: {fileID: 1909693606}
-  - component: {fileID: 1909693605}
   - component: {fileID: 1909693608}
+  - component: {fileID: 1909693609}
   m_Layer: 5
   m_Name: d1
   m_TagString: Untagged
@@ -8070,31 +8070,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1909693605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909693603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ecf5cc174500d49911cf64bf5ead11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
-  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
-  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
-  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
-  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
-  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
-  diceImage: {fileID: 1909693606}
-  image: {fileID: 1909693603}
-  image2: {fileID: 1225192446}
-  animationDuration: 3
-  faceValue: 0
-  isLocked: 0
 --- !u!114 &1909693606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8177,8 +8152,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1909693605}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1909693609}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: ToggleLock
         m_Mode: 1
         m_Arguments:
@@ -8189,6 +8164,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1909693609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909693603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19c2900e173804aa4491adcd7ded1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
+  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
+  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
+  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
+  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
+  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
+  diceImage: {fileID: 1909693606}
+  image: {fileID: 1909693603}
+  image2: {fileID: 1225192446}
+  animationDuration: 3
+  faceValue: 0
+  isLocked: 0
 --- !u!1 &1998929139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8280,8 +8280,8 @@ GameObject:
   - component: {fileID: 2008710578}
   - component: {fileID: 2008710581}
   - component: {fileID: 2008710580}
-  - component: {fileID: 2008710579}
   - component: {fileID: 2008710582}
+  - component: {fileID: 2008710583}
   m_Layer: 5
   m_Name: d5
   m_TagString: Untagged
@@ -8310,31 +8310,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2008710579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008710577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ecf5cc174500d49911cf64bf5ead11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
-  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
-  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
-  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
-  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
-  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
-  diceImage: {fileID: 2008710580}
-  image: {fileID: 2008710577}
-  image2: {fileID: 1604214813}
-  animationDuration: 3
-  faceValue: 0
-  isLocked: 0
 --- !u!114 &2008710580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8417,8 +8392,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2008710579}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 2008710583}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: ToggleLock
         m_Mode: 1
         m_Arguments:
@@ -8429,6 +8404,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2008710583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008710577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19c2900e173804aa4491adcd7ded1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
+  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
+  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
+  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
+  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
+  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
+  diceImage: {fileID: 2008710580}
+  image: {fileID: 2008710577}
+  image2: {fileID: 1604214813}
+  animationDuration: 3
+  faceValue: 0
+  isLocked: 0
 --- !u!1 &2013437401
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,8 +8440,8 @@ GameObject:
   - component: {fileID: 2013437402}
   - component: {fileID: 2013437405}
   - component: {fileID: 2013437404}
-  - component: {fileID: 2013437403}
   - component: {fileID: 2013437406}
+  - component: {fileID: 2013437407}
   m_Layer: 5
   m_Name: d4
   m_TagString: Untagged
@@ -8470,31 +8470,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2013437403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013437401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ecf5cc174500d49911cf64bf5ead11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
-  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
-  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
-  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
-  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
-  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
-  diceImage: {fileID: 2013437404}
-  image: {fileID: 2013437401}
-  image2: {fileID: 911363479}
-  animationDuration: 3
-  faceValue: 0
-  isLocked: 0
 --- !u!114 &2013437404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8577,8 +8552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2013437403}
-        m_TargetAssemblyTypeName: DiceAnimation, Assembly-CSharp
+      - m_Target: {fileID: 2013437407}
+        m_TargetAssemblyTypeName: DiceAnimationLocal, Assembly-CSharp
         m_MethodName: ToggleLock
         m_Mode: 1
         m_Arguments:
@@ -8589,6 +8564,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2013437407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013437401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19c2900e173804aa4491adcd7ded1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 21300000, guid: f00c65dfd29f6cc46b2f8464e24b6665, type: 3}
+  - {fileID: 21300000, guid: 3d97b7b76e4ed3148b4a7c521a1c30f3, type: 3}
+  - {fileID: 21300000, guid: 1d0bce6f5b38cba4ca378c970861c2b5, type: 3}
+  - {fileID: 21300000, guid: 1101e1bfb738b1f4099c3729b0ea8de4, type: 3}
+  - {fileID: 21300000, guid: 239ef466ea0fff64ca635ba248af5658, type: 3}
+  - {fileID: 21300000, guid: 0e7b2236ba4b88a468aaa15c81079210, type: 3}
+  diceImage: {fileID: 2013437404}
+  image: {fileID: 2013437401}
+  image2: {fileID: 911363479}
+  animationDuration: 3
+  faceValue: 0
+  isLocked: 0
 --- !u!1 &2038068034
 GameObject:
   m_ObjectHideFlags: 0
@@ -8712,8 +8712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1153957759}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+      - m_Target: {fileID: 1153957761}
+        m_TargetAssemblyTypeName: GameLocal, Assembly-CSharp
         m_MethodName: OnCategoryButtonClick
         m_Mode: 2
         m_Arguments:
