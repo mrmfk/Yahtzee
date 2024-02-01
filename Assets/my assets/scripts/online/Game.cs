@@ -8,6 +8,8 @@ public class Game : NetworkBehaviour
     [SerializeField] GlobalGameManager globalGameManager;
 
     public List<Player> players;
+    public Player player1;
+    public Player player2;
     public int currentRound;
     public Button[] categoryButtons;
     public Button submitButton;
@@ -24,7 +26,7 @@ public class Game : NetworkBehaviour
     public Text labelTurn;
     void Start()
     {
-        // StartGame(2);
+         StartGame(2);
     }
     private void Update() 
     {
@@ -49,178 +51,182 @@ public class Game : NetworkBehaviour
         globalGameManager.SwitchTurnServerRpc();
     }
 
-    // void StartGame(int playerCount)
-    // {
-    //     players = new List<Player>();
-    //     for (int i = 0; i < playerCount; i++)
-    //     {
-    //         players.Add(new Player("Player " + (i + 1)));
-    //     }
-    //     currentRound = 1;
-    //    // StartRound();
-    // }
-    // public void OnCategoryButtonClick(Button button)
-    // {
+    void StartGame(int playerCount)
+    {
+        players = new List<Player>();
+        /*for (int i = 0; i < playerCount; i++)
+        {
+            players.Add(new Player("Player " + (i + 1)));
+        }*/
+        players.Add(player1);
+        players.Add(player2);
+        player1.createPlayer("Host");
+        player2.createPlayer("client");
+      currentRound = 1;
+        // StartRound();
+    }
+    public void OnCategoryButtonClick(Button button)
+    {
 
-    //     int buttonIndex = System.Array.IndexOf(categoryButtons, button);
-    //     diceColorReset(turnp1);
+        int buttonIndex = System.Array.IndexOf(categoryButtons, button);
+        diceColorReset(turnp1);
 
-    //     if (turnp1)
-    //     {
-    //         if (!players[0].scoreChooce[buttonIndex])
-    //         {
-    //             categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
-    //             selectedCategory = buttonIndex + 1;
-    //             buttonIndexGlob = buttonIndex;
-    //         }
-    //         else { Debug.Log("select other one"); }
+        if (turnp1)
+        {
+            if (!players[0].scoreChooce[buttonIndex])
+            {
+                categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+                selectedCategory = buttonIndex + 1;
+                buttonIndexGlob = buttonIndex;
+            }
+            else { Debug.Log("select other one"); }
 
-    //     }
-    //     else
-    //     {
-    //             if (!players[1].scoreChooce[buttonIndex])
-    //             {
-    //                 categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
-    //                 selectedCategory = buttonIndex + 1;
-    //                 buttonIndexGlob = buttonIndex;
-    //         }
-    //             else { Debug.Log("select other one"); }
-
-            
-    //     }
-        
-    // }
-    // public void OnSubmitButtonClick()
-    // {
-    //     if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
-    //     {
-
-    //         labelUp();
-    //         rollClick = 0;
-    //         rollButton.gameObject.SetActive(true);
-    //         Player currentPlayer;
-    //         if (turnp1)
-    //             currentPlayer = players[0];
-    //         else
-    //             currentPlayer = players[1];
-
-        
-    //         currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList),currentPlayer);
-           
-    //         if (turnp1)
-    //         {
-    //             p1Scores[selectedCategory-1].text = players[0].scores[selectedCategory-1].ToString();
-    //             p1Scores[13].text = players[0].totalScore.ToString();
-
-    //         }
-    //         else
-    //         {
-
-    //             p2Scores[selectedCategory-1].text = players[1].scores[selectedCategory-1].ToString();
-    //             p2Scores[13].text = players[1].totalScore.ToString();
+        }
+        else
+        {
+            if (!players[1].scoreChooce[buttonIndex])
+            {
+                categoryButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+                selectedCategory = buttonIndex + 1;
+                buttonIndexGlob = buttonIndex;
+            }
+            else { Debug.Log("select other one"); }
 
 
-    //         }
-    //         currentRound++;
-    //         buttonIndexGlob = -1;
+        }
 
-    //         turnp1 = !turnp1;
-    //         resetAlldice();
-    //         if (currentRound <= 26) 
-    //         {
-    //             // StartRound();
-    //             Debug.Log("Round " + currentRound);
-    //             Debug.Log("p1  " + players[0].totalScore);
-    //             Debug.Log("p2  " + players[1].totalScore);
-    //         }
-    //         else
-    //         {
-    //             EndGame();
-    //         }
-    //     }
-    //     else { Debug.Log("choose category first"); }
-    // }
-    // void EndGame()
-    // {
-    //     // ����� ���?�� ��?�� ���?
-    //     Debug.Log("Game Over");
+    }
+    public void OnSubmitButtonClick()
+    {
+        if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name != "UIMask" && diceObjects[0].active)
+        {
 
-    //     // ���?� ���?� ���??
-    //     foreach (Player player in players)
-    //     {
-    //         Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
-    //     }
-    // }
-    // int[] GetDiceValues(List<DiceAnimation> dice)
-    // {
-    //     int[] values = new int[5];
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         values[i] = dice[i].faceValue+1;
-    //     }
-    //     return values;
-    // }
-    // public void rollBu()
-    // {
-    //     allDices();
-    //     if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
-    //     rollClick++;
-    // }
-    // public void resetAlldice()
-    // {
-    //     diceColorReset(turnp1);
- 
-    //     foreach (GameObject l in lockObjects)
-    //     {
-    //         if (l.active)
-    //             diceList[lockObjects.IndexOf(l)].isLocked = !diceList[lockObjects.IndexOf(l)].isLocked;
+            labelUp();
+            rollClick = 0;
+            rollButton.gameObject.SetActive(true);
+            Player currentPlayer;
+            if (turnp1)
+                currentPlayer = players[0];
+            else
+                currentPlayer = players[1];
 
-    //         l.SetActive(false);
-    //     }
-    //  foreach(GameObject D in diceObjects)
-    //     {
-    //         D.SetActive(false);
-    //     }
 
-    
-    // }
-    // public void allDices()
-    // {
-    //     foreach (GameObject D in diceObjects)
-    //     {
-    //         D.SetActive(true);
-    //     }
+            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList), currentPlayer);
 
-    // }
-    // public void diceColorReset(bool trn)
-    // {
-    //     if (trn)
-    //     {
-    //         for (int i = 0; i < 13; i++)
-    //         {
-    //             if (players[0].scoreChooce[i])
-    //                 categoryButtons[i].GetComponent<Image>().color = Color.yellow;
-    //             else
-    //                 categoryButtons[i].GetComponent<Image>().color = Color.white;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         for (int i = 0; i < 13; i++)
-    //         {
-    //             if (players[1].scoreChooce[i])
-    //                 categoryButtons[i].GetComponent<Image>().color = Color.yellow;
-    //             else
-    //                 categoryButtons[i].GetComponent<Image>().color = Color.white;
-    //         }
-    //     }
+            if (turnp1)
+            {
+                p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
+                p1Scores[13].text = players[0].totalScore.ToString();
 
-    // }
-    // public void labelUp()
-    // {
-    //     if (labelTurn.text == "PLAYER 1's TURN" ) { labelTurn.text = "PLAYER 2's TURN"; }
-    //     else { labelTurn.text = "PLAYER 1's TURN"; }
+            }
+            else
+            {
 
-    // }
+                p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
+                p2Scores[13].text = players[1].totalScore.ToString();
+
+
+            }
+            currentRound++;
+            buttonIndexGlob = -1;
+            OnClickTurn();
+            turnp1 = !turnp1;
+            resetAlldice();
+            if (currentRound <= 26)
+            {
+                // StartRound();
+                Debug.Log("Round " + currentRound);
+                Debug.Log("p1  " + players[0].totalScore);
+                Debug.Log("p2  " + players[1].totalScore);
+            }
+            else
+            {
+                EndGame();
+            }
+        }
+        else { Debug.Log("choose category first"); }
+    }
+    void EndGame()
+    {
+        // ����� ���?�� ��?�� ���?
+        Debug.Log("Game Over");
+
+        // ���?� ���?� ���??
+        foreach (Player player in players)
+        {
+            Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
+        }
+    }
+    int[] GetDiceValues(List<DiceAnimation> dice)
+    {
+        int[] values = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            values[i] = dice[i].faceValue + 1;
+        }
+        return values;
+    }
+    public void rollBu()
+    {
+        allDices();
+        if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
+        rollClick++;
+    }
+    public void resetAlldice()
+    {
+        diceColorReset(turnp1);
+
+        foreach (GameObject l in lockObjects)
+        {
+            if (l.active)
+                diceList[lockObjects.IndexOf(l)].isLocked = !diceList[lockObjects.IndexOf(l)].isLocked;
+
+            l.SetActive(false);
+        }
+        foreach (GameObject D in diceObjects)
+        {
+            D.SetActive(false);
+        }
+
+
+    }
+    public void allDices()
+    {
+        foreach (GameObject D in diceObjects)
+        {
+            D.SetActive(true);
+        }
+
+    }
+    public void diceColorReset(bool trn)
+    {
+        if (trn)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                if (players[0].scoreChooce[i])
+                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                else
+                    categoryButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                if (players[1].scoreChooce[i])
+                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                else
+                    categoryButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
+
+    }
+    public void labelUp()
+    {
+        if (labelTurn.text == "PLAYER 1's TURN") { labelTurn.text = "PLAYER 2's TURN"; }
+        else { labelTurn.text = "PLAYER 1's TURN"; }
+
+    }
 
 }
