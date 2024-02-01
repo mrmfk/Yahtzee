@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Netcode;
 
-public class DiceAnimation : MonoBehaviour
+public class DiceAnimation : NetworkBehaviour
 {
     public Sprite[] diceSprites;
     public Image diceImage;
