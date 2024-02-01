@@ -911,11 +911,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 77bf9b8f-829c-463e-9d1a-9cbf5fc1b6a0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: yahtzee mobile
+  organizationId: m_f_k
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
