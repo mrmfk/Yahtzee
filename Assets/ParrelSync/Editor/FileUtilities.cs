@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ParrelSync
 {
-    public class FileUtilities
+    public class FileUtilities : MonoBehaviour
     {
         public static bool IsFileLocked(string path)
         {
