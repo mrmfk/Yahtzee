@@ -25,17 +25,6 @@ public class Player : NetworkBehaviour
         }
     }
 
-
-
-    public void ToggleDiceLock(int index)
-    {
-        diceLocked[index] = !diceLocked[index];
-        Debug.Log(playerName + "'s die " + (index + 1) + " is " + (diceLocked[index] ? "locked" : "unlocked"));
-    }
-
-
-
-
     public void ScoreInCategory(int category, int[] diceValues, Player p)
     {
         int score = 0;

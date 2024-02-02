@@ -10,6 +10,13 @@ public class ConnectController : NetworkBehaviour
 {
     [SerializeField] GlobalGameManager globalGameManager;
     [SerializeField] GameObject connectPage;
+    [SerializeField] GameObject startGameObj;
+    [SerializeField] GameObject Clientbtn;
+    [SerializeField] GameObject Hostbtn;
+    [SerializeField] GameObject textObj;
+    [SerializeField] GameObject refreshObj;
+    [SerializeField] GameObject ipObj;
+    
 
 
     void Start()
@@ -22,15 +29,28 @@ public class ConnectController : NetworkBehaviour
 
     }
     public void closeScene(){
+        SceneManager.LoadScene("menu");
+    }
+    public void startgameClick()
+    {
         connectPage.SetActive(false);
     }
     public void OnClickHost()
     {
+        Clientbtn.SetActive(false);
+        textObj.SetActive(false);
+        Hostbtn.SetActive(false);
         NetworkManager.Singleton.StartHost();
+        startGameObj.SetActive(true);
     }
     public void OnClickclient()
     {
         NetworkManager.Singleton.StartClient();
+        startGameObj.SetActive(true);
+        ipObj.SetActive(false);
+        refreshObj.SetActive(false);
+        Hostbtn.SetActive(false);
+        Clientbtn.SetActive(false);
     }
 
     public void OnClickTestTurn()

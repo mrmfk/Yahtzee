@@ -148,10 +148,7 @@ public class Game : NetworkBehaviour
     }
     void EndGame()
     {
-        // ����� ���?�� ��?�� ���?
         Debug.Log("Game Over");
-
-        // ���?� ���?� ���??
         foreach (Player player in players)
         {
             Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
@@ -224,8 +221,8 @@ public class Game : NetworkBehaviour
     }
     public void labelUp()
     {
-        if (labelTurn.text == "PLAYER 1's TURN") { labelTurn.text = "PLAYER 2's TURN"; }
-        else { labelTurn.text = "PLAYER 1's TURN"; }
+        if (labelTurn.text == "Host's TURN") { labelTurn.text = "Client's TURN"; }
+        else { labelTurn.text = "Host's TURN"; }
 
     }
 
