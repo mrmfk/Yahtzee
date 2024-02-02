@@ -20,6 +20,7 @@ public class ConnectController : NetworkBehaviour
     [SerializeField] GameObject textObj;
     [SerializeField] GameObject refreshObj;
     [SerializeField] GameObject ipObj;
+    [SerializeField] GameObject canvasGameObject;
 
     [SerializeField] GameObject popUpTextPrefab;
     [SerializeField] TMP_Text popUpText;
@@ -76,7 +77,7 @@ public class ConnectController : NetworkBehaviour
     {
         popUpText.text = text;
         popUpText.color = color;
-        Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, this.gameObject.transform.GetChild(0).transform);
+        Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, canvasGameObject.transform);
     }
 
 
