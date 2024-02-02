@@ -79,17 +79,5 @@ public class ConnectController : NetworkBehaviour
         Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, this.gameObject.transform.GetChild(0).transform);
     }
 
-    public void OnClickTestTurn()
-    {
-        if(IsHost && globalGameManager.myTurn.Value)
-        {
-            Debug.Log("Its Host Turn");
-            globalGameManager.SwitchTurnServerRpc();
-        }
-        else if(!IsHost && !globalGameManager.myTurn.Value)
-        {
-            Debug.Log("Its Clients Turn");
-            globalGameManager.SwitchTurnServerRpc();
-        }
-    }
+
 }
