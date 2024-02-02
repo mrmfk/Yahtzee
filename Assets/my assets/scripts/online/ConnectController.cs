@@ -4,7 +4,11 @@ using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
 using System;
-
+using Unity.Netcode.Transports.UTP;
+using System.Net;
+using System.Linq;
+using TMPro;
+using Unity.Mathematics;
 
 public class ConnectController : NetworkBehaviour
 {
@@ -16,8 +20,11 @@ public class ConnectController : NetworkBehaviour
     [SerializeField] GameObject textObj;
     [SerializeField] GameObject refreshObj;
     [SerializeField] GameObject ipObj;
-    
 
+    [SerializeField] GameObject popUpTextPrefab;
+    [SerializeField] TMP_Text popUpText;
+    [SerializeField] Transform popUpTextPos;
+    [SerializeField] private TextMeshProUGUI ipText;
 
     void Start()
     {
@@ -51,6 +58,25 @@ public class ConnectController : NetworkBehaviour
         refreshObj.SetActive(false);
         Hostbtn.SetActive(false);
         Clientbtn.SetActive(false);
+    }
+    public string GetLocalIPv4()
+    {
+        return Dns.GetHostEntry(Dns.GetHostName())
+        .AddressList.First(
+        f => f.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+        .ToString();
+    }
+
+    public void OnClickRefresh()
+    {
+        ipText.text = "IP : " + GetLocalIPv4();
+        popUpTextInit(Color.green, "IP Refreshed!!");
+    }
+    void popUpTextInit(Color color, string text)
+    {
+        popUpText.text = text;
+        popUpText.color = color;
+        Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, this.gameObject.transform.GetChild(0).transform);
     }
 
     public void OnClickTestTurn()
