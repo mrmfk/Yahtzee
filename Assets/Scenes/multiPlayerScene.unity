@@ -1607,7 +1607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290827944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: -1161, z: -123.53772}
+  m_LocalPosition: {x: -28, y: -1492, z: -123.53772}
   m_LocalScale: {x: 2.1610808, y: 2.1610808, z: 2.1610808}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6879,6 +6879,7 @@ MonoBehaviour:
   - {fileID: 1596958654}
   - {fileID: 142517695}
   labelTurn: {fileID: 390642794}
+  controller: {fileID: 1153957762}
 --- !u!4 &1153957760
 Transform:
   m_ObjectHideFlags: 0
@@ -6935,6 +6936,7 @@ MonoBehaviour:
   popUpText: {fileID: 7706837542546616760, guid: ec557b28182dd15489d80c1a5cbd1453, type: 3}
   popUpTextPos: {fileID: 290827945}
   ipText: {fileID: 746198783}
+  IP: {fileID: 1940037326}
 --- !u!1 &1155047950
 GameObject:
   m_ObjectHideFlags: 0

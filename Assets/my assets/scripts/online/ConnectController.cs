@@ -26,7 +26,9 @@ public class ConnectController : NetworkBehaviour
     [SerializeField] TMP_Text popUpText;
     [SerializeField] Transform popUpTextPos;
     [SerializeField] private TextMeshProUGUI ipText;
+    [SerializeField] TMP_InputField IP;
 
+    String ipAdress = "127.0.0.1";
     void Start()
     {
 
@@ -48,17 +50,33 @@ public class ConnectController : NetworkBehaviour
         Clientbtn.SetActive(false);
         textObj.SetActive(false);
         Hostbtn.SetActive(false);
-        NetworkManager.Singleton.StartHost();
         startGameObj.SetActive(true);
+        NetworkManager.Singleton.StartHost();
+        
     }
     public void OnClickclient()
     {
-        NetworkManager.Singleton.StartClient();
-        startGameObj.SetActive(true);
-        ipObj.SetActive(false);
-        refreshObj.SetActive(false);
-        Hostbtn.SetActive(false);
-        Clientbtn.SetActive(false);
+        try
+        {
+            if (IP.text != "")
+            {
+                ipAdress = IP.text;
+
+            }
+            NetworkManager.GetComponent<UnityTransport>().ConnectionData.Address = ipAdress;
+            NetworkManager.Singleton.StartClient();
+            startGameObj.SetActive(true);
+            ipObj.SetActive(false);
+            refreshObj.SetActive(false);
+            Hostbtn.SetActive(false);
+            Clientbtn.SetActive(false);
+
+        }
+        catch (Exception ex)
+        {
+            popUpTextInit(Color.red, "Invalid IP Adress!!");
+        }
+
     }
     public string GetLocalIPv4()
     {
@@ -73,7 +91,7 @@ public class ConnectController : NetworkBehaviour
         ipText.text = "IP : " + GetLocalIPv4();
         popUpTextInit(Color.green, "IP Refreshed!!");
     }
-    void popUpTextInit(Color color, string text)
+   public  void popUpTextInit(Color color, string text)
     {
         popUpText.text = text;
         popUpText.color = color;

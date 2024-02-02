@@ -24,6 +24,7 @@ public class Game : NetworkBehaviour
     public Text[] p1Scores;
     public Text[] p2Scores;
     public Text labelTurn;
+   public ConnectController controller;
     void Start()
     {
          StartGame(2);
@@ -47,23 +48,18 @@ public class Game : NetworkBehaviour
 
     public void OnClickTurn()
     {
-        Debug.Log("Turn CHanged");
+      controller.popUpTextInit(Color.black, "wait for yor turn...");
         globalGameManager.SwitchTurnServerRpc();
     }
 
     void StartGame(int playerCount)
     {
         players = new List<Player>();
-        /*for (int i = 0; i < playerCount; i++)
-        {
-            players.Add(new Player("Player " + (i + 1)));
-        }*/
         players.Add(player1);
         players.Add(player2);
         player1.createPlayer("Host");
         player2.createPlayer("client");
       currentRound = 1;
-        // StartRound();
     }
     public void OnCategoryButtonClick(Button button)
     {
@@ -117,16 +113,29 @@ public class Game : NetworkBehaviour
             {
                 p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
                 p1Scores[13].text = players[0].totalScore.ToString();
-
+               // globalGameManager.setScores1ServerRpc(selectedCategory - 1, players[0].scores[selectedCategory - 1]);
+            
             }
             else
             {
 
                 p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
                 p2Scores[13].text = players[1].totalScore.ToString();
-
+             //   globalGameManager.setScores2ServerRpc(selectedCategory - 1, players[1].scores[selectedCategory - 1]);
 
             }
+           /* if (IsHost && globalGameManager.myTurn.Value)
+            {
+                p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
+                p2Scores[13].text = players[1].totalScore.ToString();
+
+            }
+            else
+            {
+                p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
+                p1Scores[13].text = players[0].totalScore.ToString();
+           
+            }*/
             currentRound++;
             buttonIndexGlob = -1;
             OnClickTurn();
@@ -221,8 +230,12 @@ public class Game : NetworkBehaviour
     }
     public void labelUp()
     {
-        if (labelTurn.text == "Host's TURN") { labelTurn.text = "Client's TURN"; }
-        else { labelTurn.text = "Host's TURN"; }
+        if (IsHost && globalGameManager.myTurn.Value) { labelTurn.text = "Client's TURN"; }
+        else if(IsHost && !globalGameManager.myTurn.Value) { labelTurn.text = "Host's TURN"; }
+        else if (globalGameManager.myTurn.Value) { labelTurn.text = "Host's TURN"; }
+        else { labelTurn.text = "Client's TURN"; }
+         /*  if (labelTurn.text == "Host's TURN") { labelTurn.text = "Client's TURN"; }
+        else { labelTurn.text = "Host's TURN"; }*/
 
     }
 
