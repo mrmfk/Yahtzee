@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GlobalGameManager : NetworkBehaviour
 {
     public NetworkVariable<bool> myTurn = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> catGlob = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> scoreGlob = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public Text labelTurn;
     /*private static NetworkList<int> scores1;
     private static NetworkList<int> scores2;

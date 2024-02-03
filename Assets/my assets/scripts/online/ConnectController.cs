@@ -95,7 +95,7 @@ public class ConnectController : NetworkBehaviour
             }
             NetworkManager.GetComponent<UnityTransport>().ConnectionData.Address = ipAdress;
             NetworkManager.Singleton.StartClient();
-            startGameObj.SetActive(true);
+           // startGameObj.SetActive(true);
             ipObj.SetActive(false);
             refreshObj.SetActive(false);
             Hostbtn.SetActive(false);

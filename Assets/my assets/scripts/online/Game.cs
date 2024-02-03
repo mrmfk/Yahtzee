@@ -44,6 +44,7 @@ public class Game : NetworkBehaviour
         else {
             turnImage.SetActive(true);
         }
+        updateScoresTable();
     }
 
     public void OnClickTurn()
@@ -113,8 +114,8 @@ public class Game : NetworkBehaviour
             {
                 p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
                 p1Scores[13].text = players[0].totalScore.ToString();
-               // globalGameManager.setScores1ServerRpc(selectedCategory - 1, players[0].scores[selectedCategory - 1]);
-            
+                // globalGameManager.setScores1ServerRpc(selectedCategory - 1, players[0].scores[selectedCategory - 1]);
+
             }
             else
             {
@@ -124,18 +125,34 @@ public class Game : NetworkBehaviour
              //   globalGameManager.setScores2ServerRpc(selectedCategory - 1, players[1].scores[selectedCategory - 1]);
 
             }
-           /* if (IsHost && globalGameManager.myTurn.Value)
+            globalGameManager.catGlob.Value = selectedCategory - 1;
+            globalGameManager.scoreGlob.Value = selectedCategory - 1;
+
+            if (IsHost && globalGameManager.myTurn.Value)
             {
-                p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
-                p2Scores[13].text = players[1].totalScore.ToString();
+                player2.scoreChooce[globalGameManager.catGlob.Value] = true;
+                player2.scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
+                player2.totalScore+= globalGameManager.scoreGlob.Value;
+            }
+            else {
+
+                player1.scoreChooce[globalGameManager.catGlob.Value] = true;
+                player1.scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
+                player1.totalScore += globalGameManager.scoreGlob.Value;
 
             }
-            else
-            {
-                p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
-                p1Scores[13].text = players[0].totalScore.ToString();
-           
-            }*/
+            /* if (IsHost && globalGameManager.myTurn.Value)
+             {
+                 p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
+                 p2Scores[13].text = players[1].totalScore.ToString();
+
+             }
+             else
+             {
+                 p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
+                 p1Scores[13].text = players[0].totalScore.ToString();
+
+             }*/
             currentRound++;
             buttonIndexGlob = -1;
             OnClickTurn();
@@ -162,6 +179,20 @@ public class Game : NetworkBehaviour
         {
             Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
         }
+    }
+
+    public void updateScoresTable()
+    {
+        for(int i = 0; i < 13; i++)
+        {
+            p2Scores[i].text = players[1].scores[i].ToString();
+            p1Scores[i].text = players[0].scores[i].ToString();
+            
+
+        }
+        p2Scores[13].text = players[1].totalScore.ToString();
+        p1Scores[13].text = players[0].totalScore.ToString();
+
     }
     int[] GetDiceValues(List<DiceAnimation> dice)
     {
