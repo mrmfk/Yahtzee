@@ -97,7 +97,7 @@ public class Game : NetworkBehaviour
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name != "UIMask" && diceObjects[0].active)
         {
 
-            labelUp();
+            // labelUp();
             rollClick = 0;
             rollButton.gameObject.SetActive(true);
             Player currentPlayer;
