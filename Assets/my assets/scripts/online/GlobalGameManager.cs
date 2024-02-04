@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class GlobalGameManager : NetworkBehaviour
 {
     public NetworkVariable<bool> myTurn = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> changeHost = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public NetworkVariable<int> catGlob = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public NetworkVariable<int> scoreGlob = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public Text labelTurn;
+    public Game game;
     /*private static NetworkList<int> scores1;
     private static NetworkList<int> scores2;
     public NetworkList<int> firstPScore = scores1;
@@ -49,7 +51,18 @@ public class GlobalGameManager : NetworkBehaviour
     {
         myTurn.Value = !myTurn.Value;
     }
-
+    [ServerRpc(RequireOwnership = false)]
+    public void SwitchP1BoolServerRpc()
+    {
+        changeHost.Value = false;
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void setScoresServerRpc(int score,int cat)
+    {
+        catGlob.Value = cat;
+        scoreGlob.Value = score;
+        changeHost.Value = true;
+    }
     public void labelUp()
     {
         if (!myTurn.Value) { labelTurn.text = "Client's TURN"; }
@@ -57,4 +70,15 @@ public class GlobalGameManager : NetworkBehaviour
         
 
     }
+    [ServerRpc(RequireOwnership = false)]
+    public void setScore1ServerRpc(int scoreGlob1) {
+      scoreGlob =new NetworkVariable<int>(scoreGlob1);
+         }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void setScore2ServerRpc(int scoreGlob1)
+    {
+        catGlob = new NetworkVariable<int>(scoreGlob1);
+    }
+
 }

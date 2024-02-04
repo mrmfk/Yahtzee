@@ -34,6 +34,13 @@ public class Game : NetworkBehaviour
         if(IsHost && globalGameManager.myTurn.Value)
         {
             turnImage.SetActive(false);
+            if (globalGameManager.changeHost.Value)
+            {
+                players[1].scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
+                players[1].scoreChooce[globalGameManager.catGlob.Value] = true;
+                players[1].totalScore += globalGameManager.scoreGlob.Value;
+                globalGameManager.SwitchP1BoolServerRpc();
+            }
             
         }
         else if(!IsHost && !globalGameManager.myTurn.Value)
@@ -93,74 +100,66 @@ public class Game : NetworkBehaviour
         }
 
     }
+
+    [ClientRpc]
+    public void setScoresClientRpc(int score, int cat)
+    {
+        if (!IsHost)
+        {
+            players[0].scores[cat] = score;
+            players[0].scoreChooce[cat] = true;
+            players[0].totalScore += score;
+        }
+    }
     public void OnSubmitButtonClick()
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name != "UIMask" && diceObjects[0].active)
         {
 
-            // labelUp();
             rollClick = 0;
             rollButton.gameObject.SetActive(true);
-            Player currentPlayer;
-            if (turnp1)
-                currentPlayer = players[0];
-            else
-                currentPlayer = players[1];
 
-
-            currentPlayer.ScoreInCategory(selectedCategory, GetDiceValues(diceList), currentPlayer);
-
-            if (turnp1)
+            if (IsHost)
             {
-                p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
-                p1Scores[13].text = players[0].totalScore.ToString();
-                // globalGameManager.setScores1ServerRpc(selectedCategory - 1, players[0].scores[selectedCategory - 1]);
-
+                players[0].ScoreInCategory(selectedCategory, GetDiceValues(diceList), players[0]);
+               
+                
+                // globalGameManager.catGlob.Value = selectedCategory - 1;
+              //  globalGameManager.scoreGlob.Value = players[0].scores[selectedCategory - 1];
             }
             else
             {
 
-                p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
-                p2Scores[13].text = players[1].totalScore.ToString();
-             //   globalGameManager.setScores2ServerRpc(selectedCategory - 1, players[1].scores[selectedCategory - 1]);
-
+                players[1].ScoreInCategory(selectedCategory, GetDiceValues(diceList), players[1]);
+                
+                //globalGameManager.catGlob.Value = selectedCategory - 1;
+                //globalGameManager.catGlob.Set() = selectedCategory - 1;
+               //globalGameManager.scoreGlob.Value = players[1].scores[selectedCategory - 1];
             }
-            globalGameManager.catGlob.Value = selectedCategory - 1;
-            globalGameManager.scoreGlob.Value = selectedCategory - 1;
-
-            if (IsHost && globalGameManager.myTurn.Value)
+            if (IsHost)
             {
-                player2.scoreChooce[globalGameManager.catGlob.Value] = true;
-                player2.scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
-                player2.totalScore+= globalGameManager.scoreGlob.Value;
+                setScoresClientRpc(globalGameManager.scoreGlob.Value, globalGameManager.catGlob.Value);
             }
-            else {
+            else
+            {
+/*
+                players[1].scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
+                players[1].scoreChooce[globalGameManager.catGlob.Value] = true;
+                players[1].totalScore += globalGameManager.scoreGlob.Value;
+*/
+                //globalGameManager.setScore1ServerRpc(globalGameManager.scoreGlob.Value);
+                //globalGameManager.setScore2ServerRpc(globalGameManager.catGlob.Value);
 
-                player1.scoreChooce[globalGameManager.catGlob.Value] = true;
-                player1.scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
-                player1.totalScore += globalGameManager.scoreGlob.Value;
+                //globalGameManager.setScoresServerRpc(globalGameManager.scoreGlob.Value, globalGameManager.catGlob.Value, players[1]);
 
             }
-            /* if (IsHost && globalGameManager.myTurn.Value)
-             {
-                 p2Scores[selectedCategory - 1].text = players[1].scores[selectedCategory - 1].ToString();
-                 p2Scores[13].text = players[1].totalScore.ToString();
-
-             }
-             else
-             {
-                 p1Scores[selectedCategory - 1].text = players[0].scores[selectedCategory - 1].ToString();
-                 p1Scores[13].text = players[0].totalScore.ToString();
-
-             }*/
             currentRound++;
             buttonIndexGlob = -1;
             OnClickTurn();
             turnp1 = !turnp1;
             resetAlldice();
-            if (currentRound <= 26)
+            if (currentRound <= 13)
             {
-                // StartRound();
                 Debug.Log("Round " + currentRound);
                 Debug.Log("p1  " + players[0].totalScore);
                 Debug.Log("p2  " + players[1].totalScore);
@@ -171,6 +170,8 @@ public class Game : NetworkBehaviour
             }
         }
         else { Debug.Log("choose category first"); }
+
+
     }
     void EndGame()
     {
@@ -211,7 +212,7 @@ public class Game : NetworkBehaviour
     }
     public void resetAlldice()
     {
-        diceColorReset(turnp1);
+        diceColorReset(!turnp1);
 
         foreach (GameObject l in lockObjects)
         {
@@ -237,7 +238,7 @@ public class Game : NetworkBehaviour
     }
     public void diceColorReset(bool trn)
     {
-        if (trn)
+        if (!trn)
         {
             for (int i = 0; i < 13; i++)
             {

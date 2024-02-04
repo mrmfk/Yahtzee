@@ -11,7 +11,7 @@ public class Player : NetworkBehaviour
     public List<bool> scoreChooce; 
     public int totalScore; 
     public bool[] diceLocked;
-
+    [SerializeField] GlobalGameManager globalGameManager;
     public void createPlayer(string name)
     {
         playerName = name;
@@ -65,6 +65,7 @@ public class Player : NetworkBehaviour
         p.scores[category - 1] = score;
         p.scoreChooce[category - 1] = true;
         p.totalScore += score;
+        globalGameManager.setScoresServerRpc(score, category - 1);
     }
 
 

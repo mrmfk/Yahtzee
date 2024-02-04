@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+using Unity.Mathematics;
 
 public class GameLocal : MonoBehaviour
 {
@@ -19,6 +22,13 @@ public class GameLocal : MonoBehaviour
     public Text[] p1Scores;
     public Text[] p2Scores;
     public Text labelTurn;
+    public GameObject finish;
+    public Text winner;
+    public Text scoresText;
+    [SerializeField] GameObject popUpTextPrefab;
+    [SerializeField] TMP_Text popUpText;
+    [SerializeField] Transform popUpTextPos;
+    [SerializeField] GameObject canvasGameObject;
     void Start()
     {
         StartGame(2);
@@ -48,7 +58,9 @@ public class GameLocal : MonoBehaviour
                 selectedCategory = buttonIndex + 1;
                 buttonIndexGlob = buttonIndex;
             }
-            else { Debug.Log("select other one"); }
+            else {
+                popUpTextInit(Color.red, "select other one");
+                Debug.Log("select other one"); }
 
         }
         else
@@ -59,12 +71,21 @@ public class GameLocal : MonoBehaviour
                     selectedCategory = buttonIndex + 1;
                     buttonIndexGlob = buttonIndex;
             }
-                else { Debug.Log("select other one"); }
+                else {
+                popUpTextInit(Color.red, "select other one");
+                Debug.Log("select other one"); }
 
             
         }
         
     }
+    public void popUpTextInit(Color color, string text)
+    {
+        popUpText.text = text;
+        popUpText.color = color;
+        Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, canvasGameObject.transform);
+    }
+
     public void OnSubmitButtonClick()
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
@@ -113,15 +134,17 @@ public class GameLocal : MonoBehaviour
                 EndGame();
             }
         }
-        else { Debug.Log("choose category first"); }
+        else {
+            popUpTextInit(Color.red, "choose category first");
+            Debug.Log("choose category first"); }
     }
     void EndGame()
     {
-        Debug.Log("Game Over");
-        foreach (PlayerLocal player in players)
-        {
-            Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
-        }
+        finish.SetActive(true);
+        scoresText.text="p1: "+players[0].totalScore.ToString()+"\np2: "+players[1].totalScore.ToString();
+        if (players[0].totalScore > players[1].totalScore) { winner.text = "p1 win"; }
+        else if (players[1].totalScore> players[0].totalScore) { winner.text = "p2 win"; }
+        else { winner.text = "draw"; }
     }
     int[] GetDiceValues(List<DiceAnimationLocal> dice)
     {
@@ -193,6 +216,16 @@ public class GameLocal : MonoBehaviour
         if (labelTurn.text == "PLAYER 1's TURN" ) { labelTurn.text = "PLAYER 2's TURN"; }
         else { labelTurn.text = "PLAYER 1's TURN"; }
 
+    }
+    public void exitGame()
+    {
+
+        SceneManager.LoadScene("menu");
+    }
+    public void reloadPage ()
+    {
+
+        SceneManager.LoadScene("SampleScene");
     }
 
 }

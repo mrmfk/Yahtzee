@@ -27,14 +27,14 @@ public class ConnectController : NetworkBehaviour
     [SerializeField] Transform popUpTextPos;
     [SerializeField] private TextMeshProUGUI ipText;
     [SerializeField] TMP_InputField IP;
-    public NetworkList <int> test ;
+   // public NetworkList <int> test ;
         // public NetworkVariable<bool>[] myTurn = new NetworkVariable<int> [10](true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
 
     String ipAdress = "127.0.0.1";
     void Start()
     {
-        test = new NetworkList<int>(null, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+       // test = new NetworkList<int>(null, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     }
 
     void Update()
@@ -42,23 +42,7 @@ public class ConnectController : NetworkBehaviour
 
     }
 
-    public void OnClickTest()
-    {
-
-        ListTestClientRpc();
-        if(!IsHost){return;}
-        test.Add(UnityEngine.Random.Range(0, 100));
-
-    }
-        [ClientRpc]
-    void ListTestClientRpc()
-    {
-        
-        foreach (int a in test) 
-        {
-            Debug.Log(a);
-        }
-    }
+ 
 
 
     public void closeScene(){
