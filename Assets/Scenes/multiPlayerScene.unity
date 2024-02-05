@@ -6194,7 +6194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROLL
+  m_Text: ROLL(+++)
 --- !u!222 &1044314025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6881,6 +6881,7 @@ MonoBehaviour:
   - {fileID: 142517695}
   labelTurn: {fileID: 390642794}
   controller: {fileID: 1153957762}
+  rollText: {fileID: 1044314024}
 --- !u!4 &1153957760
 Transform:
   m_ObjectHideFlags: 0
@@ -9034,6 +9035,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTurn:
     m_InternalValue: 1
+  changeHost:
+    m_InternalValue: 0
   catGlob:
     m_InternalValue: 0
   scoreGlob:

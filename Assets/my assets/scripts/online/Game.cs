@@ -25,6 +25,7 @@ public class Game : NetworkBehaviour
     public Text[] p2Scores;
     public Text labelTurn;
    public ConnectController controller;
+    public Text rollText;
     void Start()
     {
          StartGame(2);
@@ -115,7 +116,7 @@ public class Game : NetworkBehaviour
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name != "UIMask" && diceObjects[0].active)
         {
-
+            rollText.text = "ROLL(+++)";
             rollClick = 0;
             rollButton.gameObject.SetActive(true);
 
@@ -207,8 +208,16 @@ public class Game : NetworkBehaviour
     public void rollBu()
     {
         allDices();
-        if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
+        if (rollClick >= 2)
+        {
+            rollText.text = "ROLL(+++)";
+            rollButton.gameObject.SetActive(false);
+        }
         rollClick++;
+        if (rollClick == 1)
+            rollText.text = "ROLL(++)";
+        if (rollClick == 2)
+            rollText.text = "ROLL(+)";
     }
     public void resetAlldice()
     {
