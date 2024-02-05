@@ -22,6 +22,7 @@ public class GameLocal : MonoBehaviour
     public Text[] p1Scores;
     public Text[] p2Scores;
     public Text labelTurn;
+    public Text rollText;
     public GameObject finish;
     public Text winner;
     public Text scoresText;
@@ -90,7 +91,8 @@ public class GameLocal : MonoBehaviour
     {
         if (buttonIndexGlob != -1 && diceObjects[0].GetComponent<Image>().name!="UIMask" && diceObjects[0].active)
         {
-
+            
+            rollText.text = "ROLL(+++)";
             labelUp();
             rollClick = 0;
             rollButton.gameObject.SetActive(true);
@@ -158,8 +160,14 @@ public class GameLocal : MonoBehaviour
     public void rollBu()
     {
         allDices();
-        if (rollClick >= 2) { rollButton.gameObject.SetActive(false); }
+        if (rollClick >= 2) {
+            rollText.text = "ROLL(+++)";
+            rollButton.gameObject.SetActive(false); }        
         rollClick++;
+        if (rollClick == 1)
+            rollText.text = "ROLL(++)";
+        if( rollClick == 2)
+                rollText.text = "ROLL(+)";
     }
     public void resetAlldice()
     {
@@ -194,7 +202,7 @@ public class GameLocal : MonoBehaviour
             for (int i = 0; i < 13; i++)
             {
                 if (players[0].scoreChooce[i])
-                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                    categoryButtons[i].GetComponent<Image>().color = Color.green;
                 else
                     categoryButtons[i].GetComponent<Image>().color = Color.white;
             }
@@ -204,7 +212,7 @@ public class GameLocal : MonoBehaviour
             for (int i = 0; i < 13; i++)
             {
                 if (players[1].scoreChooce[i])
-                    categoryButtons[i].GetComponent<Image>().color = Color.yellow;
+                    categoryButtons[i].GetComponent<Image>().color = Color.green;
                 else
                     categoryButtons[i].GetComponent<Image>().color = Color.white;
             }

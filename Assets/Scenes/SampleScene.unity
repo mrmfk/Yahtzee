@@ -5433,7 +5433,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROLL
+  m_Text: ROLL(+++)
 --- !u!222 &1044314025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6210,6 +6210,7 @@ MonoBehaviour:
   - {fileID: 1596958654}
   - {fileID: 142517695}
   labelTurn: {fileID: 390642794}
+  rollText: {fileID: 1044314024}
   finish: {fileID: 1066032759}
   winner: {fileID: 54240798}
   scoresText: {fileID: 417465918}
