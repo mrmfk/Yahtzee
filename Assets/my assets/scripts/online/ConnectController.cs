@@ -34,7 +34,8 @@ public class ConnectController : NetworkBehaviour
     String ipAdress = "127.0.0.1";
     void Start()
     {
-       // test = new NetworkList<int>(null, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        // test = new NetworkList<int>(null, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        ipText.text = "IP : " + GetLocalIPv4();
     }
 
     void Update()
@@ -42,17 +43,100 @@ public class ConnectController : NetworkBehaviour
 
     }
 
- 
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback += HandleClientConnect;
+            NetworkManager.Singleton.OnClientDisconnectCallback += HandleClientDisconnect;
+            foreach (NetworkClient client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                HandleClientConnect(client.ClientId);
+            }
+        }
+
+        if (NetworkManager.Singleton.LocalClientId == 1)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback += conected;
+            NetworkManager.Singleton.OnClientDisconnectCallback += Disconected;
+        }
+    }
+
+    private void Disconected(ulong obj)
+    {
+        popUpTextInit(Color.red, "Invalid IP Adress!!");
+    }
+
+    private void conected(ulong obj)
+    {
+        Debug.Log("You Connected");
+        popUpTextInit(Color.green, "You Connected To The Host!!");
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if (IsServer)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback -= HandleClientConnect;
+            NetworkManager.Singleton.OnClientDisconnectCallback -= HandleClientDisconnect;
+
+        }
+    }
+
+
+    private void HandleClientConnect(ulong clientID)
+    {
+        Debug.Log("client" + clientID + " connected!");
+        if (clientID == 0)
+        {
+            popUpTextInit(Color.green, "Share Your IP to Your Friend");
+        }
+        else
+        {
+
+            popUpTextInit(Color.green, "A Player Connected To Host!!");
+        }
+    }
+
+    private void HandleClientDisconnect(ulong clientID)
+    {
+        Debug.Log("client" + clientID + " Disconnected!");
+        popUpTextInit(Color.red, "A Player Disonnected!!");
+    }
 
     public void closeScene(){
+       /* if (IsClient)
+         {
+            NetworkManager.Singleton.Shutdown();
+            popUpTextInit(Color.red, "A player exit the game!!");
+            if(IsHost)
+             NetworkManager.SceneManager.LoadScene("menu", LoadSceneMode.Single);
+            else
+
+                SceneManager.LoadScene("menu");
+        }*/
+
+        //NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
+
         SceneManager.LoadScene("menu");
     }
     
     public void startgameClick()
     {
-        connectPage.SetActive(false);
-        CloseForClientsClientRpc();
+
+        if (!IsServer) { return; }
+        Debug.Log("connected players : " + NetworkManager.ConnectedClients.Count);
+        if (NetworkManager.ConnectedClients.Count > 1)
+        {
+            connectPage.SetActive(false);
+            CloseForClientsClientRpc();
+
+        }
+        else
+        {
+            popUpTextInit(Color.red, "Not Enough Players!!");
+        }
     }
     [ClientRpc]
     void CloseForClientsClientRpc()

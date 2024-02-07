@@ -74,9 +74,11 @@ public class Game : NetworkBehaviour
     {
 
         int buttonIndex = System.Array.IndexOf(categoryButtons, button);
-        diceColorReset(turnp1);
 
-        if (turnp1)
+        if (IsHost)
+            diceColorReset(true);
+        else diceColorReset(false);
+        if (IsHost)
         {
             if (!players[0].scoreChooce[buttonIndex])
             {
@@ -221,8 +223,9 @@ public class Game : NetworkBehaviour
     }
     public void resetAlldice()
     {
-        diceColorReset(!turnp1);
-
+        if (IsHost)
+            diceColorReset(true);
+        else diceColorReset(false);
         foreach (GameObject l in lockObjects)
         {
             if (l.active)
@@ -247,7 +250,7 @@ public class Game : NetworkBehaviour
     }
     public void diceColorReset(bool trn)
     {
-        if (!trn)
+        if (trn)
         {
             for (int i = 0; i < 13; i++)
             {
