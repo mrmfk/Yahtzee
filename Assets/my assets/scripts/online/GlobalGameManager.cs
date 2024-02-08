@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GlobalGameManager : NetworkBehaviour
 {
     public NetworkVariable<bool> myTurn = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
@@ -62,6 +63,12 @@ public class GlobalGameManager : NetworkBehaviour
         catGlob.Value = cat;
         scoreGlob.Value = score;
         changeHost.Value = true;
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void backToMenuServerRpc()
+    {
+        NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
+       // NetworkManager.Singleton.Shutdown();
     }
     public void labelUp()
     {

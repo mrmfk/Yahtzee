@@ -27,8 +27,14 @@ public class Game : NetworkBehaviour
     public Text labelTurn;
     public ConnectController controller;
     public Text rollText;
+    public GameObject finish;
+    public Text winner;
+    public Text scoresText;
     void Start()
     {
+
+        if(IsHost)
+            controller.startgameClick();
          StartGame(2);
     }
     private void Update() 
@@ -36,6 +42,8 @@ public class Game : NetworkBehaviour
         if(IsHost && globalGameManager.myTurn.Value)
         {
             turnImage.SetActive(false);
+            if(currentRound>13)
+                EndGame();
             if (globalGameManager.changeHost.Value)
             {
                 players[1].scores[globalGameManager.catGlob.Value] = globalGameManager.scoreGlob.Value;
@@ -59,7 +67,7 @@ public class Game : NetworkBehaviour
     public void OnClickTurn()
     {
       controller.popUpTextInit(Color.black, "wait for yor turn...");
-        globalGameManager.SwitchTurnServerRpc();
+        
     }
 
     void StartGame(int playerCount)
@@ -87,7 +95,9 @@ public class Game : NetworkBehaviour
                 selectedCategory = buttonIndex + 1;
                 buttonIndexGlob = buttonIndex;
             }
-            else { Debug.Log("select other one"); }
+            else {
+                controller.popUpTextInit(Color.red, "select other one");
+                Debug.Log("select other one"); }
 
         }
         else
@@ -98,7 +108,9 @@ public class Game : NetworkBehaviour
                 selectedCategory = buttonIndex + 1;
                 buttonIndexGlob = buttonIndex;
             }
-            else { Debug.Log("select other one"); }
+            else {
+                controller.popUpTextInit(Color.red, "select other one");
+                Debug.Log("select other one"); }
 
 
         }
@@ -159,6 +171,7 @@ public class Game : NetworkBehaviour
             }
             currentRound++;
             buttonIndexGlob = -1;
+            globalGameManager.SwitchTurnServerRpc();
             OnClickTurn();
             turnp1 = !turnp1;
             resetAlldice();
@@ -174,7 +187,9 @@ public class Game : NetworkBehaviour
                 EndGame();
             }
         }
-        else { Debug.Log("choose category first"); }
+        else {
+            controller.popUpTextInit(Color.red, "choose category first");
+            Debug.Log("choose category first"); }
 
 
     }
@@ -186,8 +201,28 @@ public class Game : NetworkBehaviour
              Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
          }*/
 
-        NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
+        finish.SetActive(true);
+        scoresText.text = "p1: " + players[0].totalScore.ToString() + "\np2: " + players[1].totalScore.ToString();
+        if (players[0].totalScore > players[1].totalScore) { winner.text = "p1 win"; }
+        else if (players[1].totalScore > players[0].totalScore) { winner.text = "p2 win"; }
+        else { winner.text = "draw"; }
+
+      
+       // NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
     }
+    public void restartGame()
+    {
+        if (IsHost)
+        {
+            globalGameManager.backToMenuServerRpc();
+            controller.startgameClick();
+        }
+        else
+        {
+            controller.popUpTextInit(Color.red, "only host can restart game");
+        }
+
+        }
 
     public void updateScoresTable()
     {

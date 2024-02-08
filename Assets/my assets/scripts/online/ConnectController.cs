@@ -106,19 +106,19 @@ public class ConnectController : NetworkBehaviour
     }
 
     public void closeScene(){
-       /* if (IsClient)
-         {
-            NetworkManager.Singleton.Shutdown();
-            popUpTextInit(Color.red, "A player exit the game!!");
-            if(IsHost)
-             NetworkManager.SceneManager.LoadScene("menu", LoadSceneMode.Single);
-            else
+        /* if (IsClient)
+          {
+             NetworkManager.Singleton.Shutdown();
+             popUpTextInit(Color.red, "A player exit the game!!");
+             if(IsHost)
+              NetworkManager.SceneManager.LoadScene("menu", LoadSceneMode.Single);
+             else
 
-                SceneManager.LoadScene("menu");
-        }*/
+                 SceneManager.LoadScene("menu");
+         }*/
 
         //NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
-
+       // globalGameManager.backToMenuServerRpc();
         SceneManager.LoadScene("menu");
     }
     
