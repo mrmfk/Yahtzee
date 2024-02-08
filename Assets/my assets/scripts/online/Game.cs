@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
 public class Game : NetworkBehaviour
 {
     [SerializeField] GameObject turnImage;
@@ -24,7 +25,7 @@ public class Game : NetworkBehaviour
     public Text[] p1Scores;
     public Text[] p2Scores;
     public Text labelTurn;
-   public ConnectController controller;
+    public ConnectController controller;
     public Text rollText;
     void Start()
     {
@@ -169,6 +170,7 @@ public class Game : NetworkBehaviour
             }
             else
             {
+                if(!IsHost)
                 EndGame();
             }
         }
@@ -178,11 +180,13 @@ public class Game : NetworkBehaviour
     }
     void EndGame()
     {
-        Debug.Log("Game Over");
-        foreach (Player player in players)
-        {
-            Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
-        }
+        /* Debug.Log("Game Over");
+         foreach (Player player in players)
+         {
+             Debug.Log(player.playerName + "'s Final Score: " + player.totalScore);
+         }*/
+
+        NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
     }
 
     public void updateScoresTable()
