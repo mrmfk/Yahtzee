@@ -30,6 +30,7 @@ public class GameLocal : MonoBehaviour
     [SerializeField] TMP_Text popUpText;
     [SerializeField] Transform popUpTextPos;
     [SerializeField] GameObject canvasGameObject;
+
     void Start()
     {
         StartGame(2);
@@ -159,6 +160,7 @@ public class GameLocal : MonoBehaviour
     }
     public void rollBu()
     {
+        
         allDices();
         if (rollClick >= 2) {
             rollText.text = "ROLL(+++)";

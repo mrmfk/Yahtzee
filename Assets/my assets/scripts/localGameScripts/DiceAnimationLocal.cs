@@ -12,6 +12,7 @@ public class DiceAnimationLocal : MonoBehaviour
     public float animationDuration = 0.8f; 
     public int faceValue;
     public bool isLocked;
+    public AudioSource rollVoice;
     void Start()
     {
 
@@ -39,6 +40,7 @@ public class DiceAnimationLocal : MonoBehaviour
     {
         if (!isLocked)
         {
+            rollVoice.Play();
             StartCoroutine(RollDiceAnimation());
 
         }

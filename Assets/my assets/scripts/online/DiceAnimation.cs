@@ -13,6 +13,7 @@ public class DiceAnimation : NetworkBehaviour
     public float animationDuration = 0.8f; 
     public int faceValue;
     public bool isLocked;
+    public AudioSource rollVoice;
     void Start()
     {
 
@@ -40,6 +41,7 @@ public class DiceAnimation : NetworkBehaviour
     {
         if (!isLocked)
         {
+            rollVoice.Play();
             StartCoroutine(RollDiceAnimation());
 
         }
