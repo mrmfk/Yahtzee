@@ -68,7 +68,6 @@ public class GlobalGameManager : NetworkBehaviour
     public void backToMenuServerRpc()
     {
         NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
-       // NetworkManager.Singleton.Shutdown();
     }
     public void labelUp()
     {

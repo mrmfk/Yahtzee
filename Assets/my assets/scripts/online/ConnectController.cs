@@ -118,7 +118,7 @@ public class ConnectController : NetworkBehaviour
          }*/
 
         //NetworkManager.SceneManager.LoadScene("multiPlayerScene", LoadSceneMode.Single);
-       // globalGameManager.backToMenuServerRpc();
+      // globalGameManager.backToMenuServerRpc();
         SceneManager.LoadScene("menu");
     }
     
@@ -149,6 +149,8 @@ public class ConnectController : NetworkBehaviour
         textObj.SetActive(false);
         Hostbtn.SetActive(false);
         startGameObj.SetActive(true);
+        ipAdress = GetLocalIPv4();
+        NetworkManager.GetComponent<UnityTransport>().ConnectionData.Address = ipAdress;
         NetworkManager.Singleton.StartHost();
         
     }

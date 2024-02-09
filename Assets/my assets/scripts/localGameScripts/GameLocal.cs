@@ -85,7 +85,7 @@ public class GameLocal : MonoBehaviour
     {
         popUpText.text = text;
         popUpText.color = color;
-        Instantiate(popUpTextPrefab, popUpTextPos.position, quaternion.identity, canvasGameObject.transform);
+        Instantiate(popUpTextPrefab, popUpTextPos.position + new Vector3(0f, -10f, 0f), quaternion.identity, canvasGameObject.transform);
     }
 
     public void OnSubmitButtonClick()
